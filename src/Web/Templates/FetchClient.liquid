@@ -25,7 +25,10 @@
 {%-    if UseGetBaseUrlMethod -%}
         this.baseUrl = this.getBaseUrl("{{ BaseUrl }}", baseUrl);
 {%-    else -%}
-        this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "{{ BaseUrl }}";
+        const envBaseUrl = process.env.REACT_APP_API_BASE_URL;
+        const _baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
+
+        this.baseUrl = envBaseUrl !== undefined && envBaseUrl !== null ? envBaseUrl : "" || _baseUrl;
 {%-    endif -%}
     }
 {%- endif -%}

@@ -15,7 +15,7 @@ public class UpdateStatusCommandValidator : AbstractValidator<UpdateStatusComman
             RuleFor(y => y.Name)
                 .NotEmpty()
                 .MustAsync(
-                    async (name, cancellationToken) => await UniqueName(name ?? "", cancellationToken)
+                    async (model, name, cancellationToken) => await UniqueName(model, name ?? "", cancellationToken)
                 )
                 .WithMessage("Another Status with the same name exists");
         });
@@ -25,9 +25,10 @@ public class UpdateStatusCommandValidator : AbstractValidator<UpdateStatusComman
             .When(y => y.Name != null);
     }
 
-    private async Task<bool> UniqueName(string name, CancellationToken cancellationToken)
+    private async Task<bool> UniqueName(UpdateStatusCommand model, string name, CancellationToken cancellationToken)
     {
-        var exists = await _context.Status.AnyAsync(n => EF.Functions.ILike(n.Name, $"%{name}%"), cancellationToken);
+        var exists = await _context.Tags.AnyAsync(n => n.Id != model.Id && n.Name.ToLower() == name.ToLower(),
+            cancellationToken);
 
         return !exists;
     }

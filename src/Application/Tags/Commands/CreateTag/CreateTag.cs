@@ -1,6 +1,5 @@
 ﻿using ActivityManager.Application.Common.Interfaces;
 using ActivityManager.Domain.Entities;
-using ActivityManager.Domain.Events;
 
 namespace ActivityManager.Application.Tags.Commands.CreateTag;
 

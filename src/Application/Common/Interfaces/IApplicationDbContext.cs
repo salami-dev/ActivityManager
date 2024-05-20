@@ -8,10 +8,6 @@ namespace ActivityManager.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
-    DbSet<TodoList> TodoLists { get; }
-
-    DbSet<TodoItem> TodoItems { get; }
-
     DbSet<Activity> Activities { get; }
     DbSet<Domain.Entities.ActivityType> ActivityTypes { get; }
     DbSet<Job> Jobs { get; }

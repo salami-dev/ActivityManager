@@ -17,6 +17,16 @@ dotnet watch run
 
 Navigate to https://localhost:5001. The application will automatically reload if you change any of the source files.
 
+## Run with Docker & Docker Compose
+
+To run the web application:
+
+```bash
+docker-compose up --build
+```
+
+Navigate to https://localhost:3000. Hot reload is not enabled.
+
 ## Code Styles & Formatting
 
 The template includes [EditorConfig](https://editorconfig.org/) support to help maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The **.editorconfig** file defines the coding styles applicable to this solution.

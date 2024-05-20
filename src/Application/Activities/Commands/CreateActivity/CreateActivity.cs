@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ActivityManager.Application.ActivityTypes.Commands.GetOrCreateActivityType;
+﻿using ActivityManager.Application.ActivityTypes.Commands.GetOrCreateActivityType;
 using ActivityManager.Application.Common.Interfaces;
-using ActivityManager.Application.Common.Models;
-using ActivityManager.Application.Status.Commands;
 using ActivityManager.Application.Status.Commands.GetOrCreateStatus;
 using ActivityManager.Application.Tags.Commands.BulkCreateTags;
-using ActivityManager.Application.TodoItems.Commands.CreateTodoItem;
 using ActivityManager.Domain.Entities;
 using Microsoft.IdentityModel.Tokens;
 

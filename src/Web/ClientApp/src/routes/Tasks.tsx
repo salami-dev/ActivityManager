@@ -19,7 +19,7 @@ const fetchData = async (search: string | null, activityId: number | null = null
     return await client.getTasksWithPagination(search, activityId, pageNumber, pageSize);
 }
 const Tasks: React.FC = () => {
-    const pageSize = 1;
+    const pageSize = 10;
 
     const [listData, setListData] = useState<ITask[]>([]);
     const [filterOptions, setFilterOptions] = useState<IFilterProps>({});

@@ -6,9 +6,6 @@ import {
     Input,
     ColorPicker,
     PaginationProps,
-    Row,
-    Col,
-    Flex
 } from 'antd';
 
 import StatusListItem from "../components/Status/StatusListItem";
@@ -31,7 +28,7 @@ const Statuses = () => {
     const [listData, setListData] = useState<IStatus[]>([]);
     const [filterOptions, setFilterOptions] = useState<IFilterProps>({});
 
-    const pageSize = 1;
+    const pageSize = 10;
     const [currentPage, setCurrentPage] = useState(1);
     const [totalSize, setTotalSize] = useState(0);
 

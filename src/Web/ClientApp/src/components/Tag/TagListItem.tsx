@@ -1,54 +1,53 @@
 import React, {useEffect, useState} from "react";
 import {Badge, Button, ColorPicker, List, message, Popover, Space, Typography} from "antd";
-import {StatusClient, UpdateStatusCommand} from "../../web-api-client";
+import {StatusClient, TagsClient, UpdateTagCommand} from "../../web-api-client";
 
 const {Text} = Typography;
 
-interface IStatus {
+interface ITag {
     id?: number,
     name: string,
     theme?: string | null
 }
 
 interface IStatusListItemProps {
-    item: IStatus,
+    item: ITag,
 
 }
 
-const client = new StatusClient();
+const client = new TagsClient();
 
-const StatusListItem: React.FC<IStatusListItemProps> = ({item}) => {
+const TagListItem: React.FC<IStatusListItemProps> = ({item}) => {
     const [editingStatus, setEditingStatus] = useState<number | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    const [state, setState] = useState<IStatus | null>(null)
+    const [state, setState] = useState<ITag | null>(null);
     const [messageApi, contextHolder] = message.useMessage();
 
     const handleSave = async () => {
         setLoading(true)
         try {
 
-            const response = await client.updateStatus(
-                state?.id ?? 0,
-                UpdateStatusCommand.fromJS(
+            const response = await client.updateTag(
+                item.id ?? 0,
+                UpdateTagCommand.fromJS(
                     {
                         name: state?.name,
                         theme: state?.theme
                     }
                 )
             )
-
             setEditingStatus(null)
 
             messageApi.open({
                 type: 'success',
-                content: 'Status Edited Successfully',
+                content: 'Tag Edited Successfully',
             });
         } catch (e) {
 
             console.warn(e)
             messageApi.open({
                 type: 'error',
-                content: 'Failed to edit Status',
+                content: 'Failed to edit Tag',
             });
 
         } finally {
@@ -59,6 +58,8 @@ const StatusListItem: React.FC<IStatusListItemProps> = ({item}) => {
             // }, 3000)
             // setLoading(false)
 
+            // setEditingStatus(null)
+            // setLoading(false)
         }
     }
 
@@ -69,6 +70,7 @@ const StatusListItem: React.FC<IStatusListItemProps> = ({item}) => {
     return (
         <>
             {contextHolder}
+
             <List.Item
                 actions={[
                     editingStatus !== item.id && !loading && (
@@ -117,4 +119,4 @@ const StatusListItem: React.FC<IStatusListItemProps> = ({item}) => {
     )
 }
 
-export default StatusListItem;
+export default TagListItem;

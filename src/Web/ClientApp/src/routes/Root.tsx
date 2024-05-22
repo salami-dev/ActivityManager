@@ -33,7 +33,7 @@ const items: MenuItem[] = [
     getItem(<NavLink to={'/'}>Home</NavLink>, '1', <PieChartOutlined/>),
     getItem(<NavLink to={'tasks'}>Tasks</NavLink>, '2', <DesktopOutlined/>),
     getItem(<NavLink to={'activities'}>Activities</NavLink>, '3', <DesktopOutlined/>),
-    getItem(<NavLink to={'analytics'}>Analytics</NavLink>, '4', <PieChartOutlined/>),
+    // getItem(<NavLink to={'analytics'}>Analytics</NavLink>, '4', <PieChartOutlined/>),
     getItem('Settings', 'sub1', <UserOutlined/>, [
         getItem(<NavLink to={'activitytypes'}>ActivityTypes</NavLink>, '5'),
         getItem(<NavLink to={'statuses'}>Statuses</NavLink>, '6'),

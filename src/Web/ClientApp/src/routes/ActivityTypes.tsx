@@ -18,7 +18,7 @@ const ActivityTypes: React.FC = () => {
     const [listData, setListData] = useState<IActivityType[]>([]);
     const [filterOptions, setFilterOptions] = useState<IFilterProps>({});
 
-    const pageSize = 1;
+    const pageSize = 10;
     const [currentPage, setCurrentPage] = useState(1);
     const [totalSize, setTotalSize] = useState(0);
 

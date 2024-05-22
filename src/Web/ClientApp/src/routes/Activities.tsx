@@ -17,7 +17,7 @@ const fetchData = async (search: string | null, pageNumber: number = 1, pageSize
     return await client.getActivitiesWithPagination(search, pageNumber, pageSize);
 }
 const Activities: React.FC = () => {
-    const pageSize = 1;
+    const pageSize = 10;
 
     const [listData, setListData] = useState<IActivity[]>([]);
     const [filterOptions, setFilterOptions] = useState<IFilterProps>({});

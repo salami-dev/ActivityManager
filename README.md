@@ -25,7 +25,7 @@ To run the web application:
 docker-compose up --build
 ```
 
-Navigate to https://localhost:3000. Hot reload is not enabled.
+Navigate to http://localhost:3000. Hot reload is not enabled.
 
 ## Code Styles & Formatting
 
